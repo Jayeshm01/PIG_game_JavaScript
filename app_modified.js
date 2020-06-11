@@ -58,8 +58,16 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
     if (gameActive){
         scores[activePlayer] += roundScore
         document.getElementById('score-'+ activePlayer).textContent = scores[activePlayer]
+        var winValue
+        var input =  document.querySelector('.final-score').value
 
-        if (scores[activePlayer] >= 100){
+        if (input){
+            winValue = input
+        }else {
+            winValue = 100
+        }
+
+        if (scores[activePlayer] >= winValue){
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!'
             document.querySelector('.dice').style.display = 'none'
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner')
